@@ -1,0 +1,71 @@
+.navbar{
+ background:#e5eaf1;
+ color: #000;
+}
+.nav-link {
+ color: #727578;
+ cursor: pointer;
+ color: #000;
+}
+.taskList{
+ background:#e5eaf1;
+ overflow: auto;
+ height:300px;
+}
+.overlay{
+ position: absolute;
+ min-height: 100%;
+ min-width: 100%;
+ left: 0;
+ top: 0;
+ background: #e5eaf1;
+}
+
+.orderList{
+ background: rgba(244, 244, 244, 0.79);
+}
+
+li:hover, a:hover {
+     background-color: #d9e0eb;
+     color: #000;
+}
+
+li.active, a.active {
+     background-color: #ccd6e4;
+     color: #000;
+     font-weight: 900
+}
+
+a {
+      color: #000;
+}
+a.del
+		{
+			text-align: center;
+			color: #000;
+			background-color: #e4c4c4;
+		}
+		
+a.del:hover
+		{
+			display: inline-block;
+			color: White;
+			background-color: Red;
+		}
+a.done
+		{
+			text-align: center;
+			color: #000;
+			background-color: #caefca;
+		}
+		
+a.done:hover
+		{
+			display: inline-block;
+			color: White;
+			background-color: green;
+		}
+.activeTask{
+	background:#ccd6e4 !important ;
+}
+		

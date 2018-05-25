@@ -18,7 +18,7 @@ Directory Structure
 
 Clone repo in your directory
 
-> git clone https://github.com/dva22/myReactCreateApp.git .
+> git clone https://github.com/dva22/React-todo.git .
 
 Install components (need NPM from Node.js)
 

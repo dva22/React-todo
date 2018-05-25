@@ -8,13 +8,10 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    rules: [
+    rules: [      
       {
-        test: /\.(css)$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -47,5 +44,6 @@ module.exports = {
       template: './client/index.html',
       inject: "body"
     })
-  ]
+  ],
+    watch: true
 };
