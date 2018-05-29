@@ -63,19 +63,22 @@ class Orders extends React.Component {
 
         return (
             <div>
-        <p>
-            <input
-                placeholder="Add orders to  ..."
-                ref="newOrder"
-                onKeyPress={(e) => this.props.onAddOrder(e)}
+                {this.props.active > -1 &&
+                    (<p>
+                        <input
+                            placeholder="Add orders to  ..."
+                            ref="newOrder"
+                            onKeyPress={(e) => this.props.onAddOrder(e)}
 
-            />
-        </p>
+                        />
+                    </p>)
+                }
                 <ItemList
                     items = {this.state.orders}
-                    done = {this.done}
-                    remove = {this.remove}
+                    onDone = {this.props.onDoneOrder}
+                    onRemove = {this.props.onRemoveOrder}
                     active = {-1}
+
                 />
 
         </div>

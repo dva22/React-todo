@@ -14,7 +14,8 @@ class Tasks extends React.Component {
     this.onDone = this.onDone.bind(this);
     this.onRemove = this.onRemove.bind(this);
     this.addOrderToTask = this.addOrderToTask.bind(this);
-    this.addOrderToTask = this.addOrderToTask.bind(this);
+    this.doneOrder = this.doneOrder.bind(this);
+    this.removeOrder = this.removeOrder.bind(this);
     }
 
     addTask(event) {
@@ -32,27 +33,45 @@ class Tasks extends React.Component {
         }
     }
 
+    doneOrder(i) {
+
+        this.setState(prevState => {
+
+            prevState.tasks[prevState.active].orders[i].done =
+                !prevState.tasks[prevState.active].orders[i].done;
+
+            return {tasks: [...prevState.tasks]}
+        });
+
+    }
+
+    removeOrder(i) {
+
+        this.setState(prevState => {
+
+            prevState.tasks[prevState.active].orders.splice(i, 1);
+
+            return {tasks: [...prevState.tasks]}
+        });
+
+    }
+
     addOrderToTask(event) {
         if (event.key == 'Enter') {
-            let arr = this.state.tasks[this.state.active].orders.slice();
             let order = {
                 done: false,
                 name: event.target.value
             };
 
-            arr.push(order);
+            event.target.value = '';
 
-            this.setState(prevState => ({
+            this.setState(prevState => {
 
-                tasks: [
-                    ...prevState.tasks.slice(0, prevState.active),
-                    (prevState.tasks[prevState.active].orders = arr) && prevState.tasks[prevState.active],
-                    ...prevState.tasks.slice(prevState.active+1)
-                ]
-            }))
+                prevState.tasks[prevState.active].orders.push(order);
 
+                return {tasks: [...prevState.tasks]}
+            })
         }
-
     }
 
     onRemove(i) {
@@ -91,11 +110,6 @@ class Tasks extends React.Component {
 
         console.log("render Task state-");
         console.log(this.state);
-        console.log(this.state.tasks[this.state.active]
-            ?
-            this.state.tasks[this.state.active].orders
-            :
-            []);
 
         return (
 
@@ -129,7 +143,10 @@ class Tasks extends React.Component {
                                 :
                                 []
                             }
+                            active = {this.state.active}
                             onAddOrder = {this.addOrderToTask}
+                            onDoneOrder = {this.doneOrder}
+                            onRemoveOrder = {this.removeOrder}
                         />
                     </div>
 

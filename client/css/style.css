@@ -52,8 +52,7 @@ a.del:hover
 			color: White;
 			background-color: Red;
 		}
-a.done
-		{
+a.done{
 			text-align: center;
 			color: #000;
 			background-color: #caefca;
@@ -67,5 +66,9 @@ a.done:hover
 		}
 .activeTask{
 	background:#ccd6e4 !important ;
+}
+
+.doneItem{
+    text-decoration:  line-through !important;
 }
 		
