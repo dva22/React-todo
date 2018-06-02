@@ -1,17 +1,37 @@
 import React from 'react';
-
+/*
+*  render elements from Tasks and Orders
+*
+* */
 export default props =>
 
     props.items.map((item, i) => {
 
-        let styleLink = '';
-        if (props.active === i)
-            styleLink += ' activeTask';
+            //fill style link
+            let styleLink = '';
 
-        if (item.done == true)
-            styleLink += ' doneItem';
+            if (props.active === i)
+                styleLink += ' activeTask';
 
-            return item.name && item.name.length > 0 &&
+            if (item.done === true)
+                styleLink += ' doneItem';
+
+            //fill name link
+            let valueItem = item.name;
+
+            if (item.countAllOrders)
+                valueItem += ' (' + item.countWorkingOrders +
+                    ' / ' + item.countAllOrders + ')';
+
+            // render elements or not
+            let isVisible =
+                item.name &&
+                item.name.length > 0 &&
+                (props.navItem === 'HISTORY' && item.history ||
+                 props.navItem === 'WORKING' && !item.history ||
+                 !props.navItem);
+
+            return isVisible &&
                 (
                     <div style={{width: 100}}>
                         <a
@@ -24,12 +44,13 @@ export default props =>
 
                         <a
                             className={"link .text-truncate" + styleLink}
-                            onClick={() => props.onActive(i)}>{item.name}</a>
+                            onClick={() => props.onActive(i)}>{valueItem}</a>
 
                     </div>
 
                 )
         }
-    );
+    )
+
 
 
