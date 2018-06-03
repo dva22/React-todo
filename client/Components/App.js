@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Tasks from './Tasks';
-import CustomNav from './customNav';
+import CustomNav from './CustomNav';
 
 
 class App extends React.Component {
