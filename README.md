@@ -4,6 +4,9 @@ Directory Structure
        client/                      - source files
        client/index.js              - entry point
        public/                      - generate React files
+       
+![alt text](shema.jpg)
+
 
  Stack
  -------------------
